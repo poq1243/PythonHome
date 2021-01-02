@@ -12,6 +12,7 @@
     border: (2, 2, 2, 2)
 
 <Participants_num>
+    part_num: part_num
     BoxLayout:
         orientation: 'vertical'
 
@@ -23,7 +24,34 @@
             multiline: False
 
         RobotoButton:
-            id: btn_start
+            id: btn1_start
             text: 'Start'
-            on_press: app.switch_input()
+            on_press: root.put_pnum()
+            on_press: root.manager.current = 'Pinput'
 
+<Participants_input>
+    BoxLayout:
+        orientation: 'vertical'
+        GridLayout:
+            rows: len(self.pnum)
+            cols: 2
+            padding: 10
+            spacing: 10
+
+            Label:
+                text: 'Name'
+            Label:
+                text: 'Number'
+
+            TextInput:
+                id: part_num1
+                multiline: False
+
+            TextInput:
+                id: part_num2
+                multiline: False
+
+        RobotoButton:
+            id: btn2_start
+            text: 'Start'
+            on_press: root.check_status()

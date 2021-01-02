@@ -1,32 +1,28 @@
 from kivy.app import App
+from kivy.properties import ObjectProperty
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
 from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
 
 
 class Participants_num(Screen):
-    def switch_prev(self, *args):
-        self.manager.transition = SlideTransition(direction='left')
-        self.manager.current = self.manager.previous()
+    part_num = ObjectProperty(None)
+    def put_pnum(self):
+        global pnum
+        pnum=int(self.part_num.text)
 
-class Participants_input(GridLayout):
-    def __init__(self, **kwargs):
-        super(Participants_input, self).__init__(**kwargs)
-        self.padding = 10
-        self.spacing = 10
 
-        self.cols = 2
-        self.rows = self.root.ids.part_num + 1
-        self.add_widget(Label(text='Name', font_size=40))
-        self.add_widget(Label(text='Number', font_size=40))
+class Participants_input(Screen):
+    def check_status(self):
+        print('text input text is: %d' % pnum)
 
 
 
 class IsthatmeApp(App):
     def build(self):
         root = ScreenManager()
-        root.add_widget(Participants_num())
-        root.add_widget(Participants_input())
+        root.add_widget(Participants_num(name='Pnum'))
+        root.add_widget(Participants_input(name='Pinput'))
 
         return root
 
