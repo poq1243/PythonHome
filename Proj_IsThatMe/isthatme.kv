@@ -1,0 +1,29 @@
+#:kivy 2.0.0
+<Label>:
+    font_name: 'Roboto'
+    font_size: 20
+    markup: True
+
+<RobotoButton@Button>:
+    font_name: 'Roboto'
+    font_size: 25
+    bold: True
+
+    border: (2, 2, 2, 2)
+
+<Participants_num>
+    BoxLayout:
+        orientation: 'vertical'
+
+        Label:
+            text: 'How many people?'
+
+        TextInput:
+            id: part_num
+            multiline: False
+
+        RobotoButton:
+            id: btn_start
+            text: 'Start'
+            on_press: app.switch_input()
+
