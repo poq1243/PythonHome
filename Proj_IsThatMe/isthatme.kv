@@ -1,19 +1,8 @@
 #:kivy 2.0.0
-<Label>:
-    font_name: 'Roboto'
-    font_size: 20
-    markup: True
-
-<RobotoButton@Button>:
-    font_name: 'Roboto'
-    font_size: 25
-    bold: True
-
-    border: (2, 2, 2, 2)
-
 <Participants_num>
-    part_num: part_num
     BoxLayout:
+        padding: 30
+        spacing: 30
         orientation: 'vertical'
 
         Label:
@@ -23,17 +12,17 @@
             id: part_num
             multiline: False
 
-        RobotoButton:
+        Button:
             id: btn1_start
             text: 'Start'
-            on_press: root.put_pnum()
             on_press: root.manager.current = 'Pinput'
+            on_press: root.Value_save()
 
 <Participants_input>
     BoxLayout:
         orientation: 'vertical'
         GridLayout:
-            rows: len(self.pnum)
+            rows: 3
             cols: 2
             padding: 10
             spacing: 10
@@ -51,7 +40,9 @@
                 id: part_num2
                 multiline: False
 
-        RobotoButton:
+        Button:
             id: btn2_start
             text: 'Start'
-            on_press: root.check_status()
+            on_press: root.manager.current = 'answer'
+            on_press: root.test()
+
