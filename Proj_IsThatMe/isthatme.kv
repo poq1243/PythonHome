@@ -18,11 +18,12 @@
             on_press: root.manager.current = 'Pinput'
             on_press: root.Value_save()
 
-<Participants_input>
+
+
+<nononoParticipants_input>
     BoxLayout:
         orientation: 'vertical'
         GridLayout:
-            rows: 3
             cols: 2
             padding: 10
             spacing: 10
@@ -30,14 +31,14 @@
             Label:
                 text: 'Name'
             Label:
-                text: 'Number'
+                text: 'Contact'
 
             TextInput:
-                id: part_num1
+                id: part_name
                 multiline: False
 
             TextInput:
-                id: part_num2
+                id: part_contact
                 multiline: False
 
         Button:
@@ -45,4 +46,3 @@
             text: 'Start'
             on_press: root.manager.current = 'answer'
             on_press: root.test()
-
